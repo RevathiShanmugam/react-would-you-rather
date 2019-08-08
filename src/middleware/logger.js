@@ -1,4 +1,4 @@
-export default function(store) {
+export default function logger(store) {
   return function(next) {
     return function(action) {
       console.group(action.type);

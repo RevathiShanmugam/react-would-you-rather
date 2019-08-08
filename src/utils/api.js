@@ -3,16 +3,14 @@ import {
   _getQuestions,
   _saveQuestion,
   _saveQuestionAnswer
-} from './_DATA.js';
+} from './DATA.js';
 
 export function getInitialData() {
   return Promise.all([
     _getUsers(),
     _getQuestions(),
-  ]).then([users, questions]) => ({
-    users,
-    questions,
-  }));
+  ]).then (function([users, questions]) {
+    return {users, questions,}});
 };
 
 export function saveQuestion(info) {
