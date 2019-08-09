@@ -11,6 +11,13 @@ class Question extends Component {
 
    render() {
      const { authedUser, question, users } = this.props;
+     const answers = Object.keys(users[authedUser].answers);
+    const answered = answers.indexOf(question.id) > -1 ? true : false;
+    const votesOptionOne = question.optionOne.votes.length;
+    const votesOptionTwo = question.optionTwo.votes.length;
+    const votesTotal = votesOptionOne + votesOptionTwo;
+    const percentVotesOptionOne = (votesOptionOne / votesTotal).toFixed(2) * 100;
+    const percentVotesOptionTwo = (votesOptionTwo / votesTotal).toFixed(2) * 100;
 
      return (
        <div>
@@ -24,6 +31,8 @@ class Question extends Component {
            className={
              question.optionOne.votes.indexOf(authedUser) > -1
              ? 'question-option-one question-option-selected'
+             : answered
+              ? 'question-option-one answered'
              : 'question-option-one'
            }
            onClick={(event) => this.handleOptionClicked(1)}
@@ -34,12 +43,23 @@ class Question extends Component {
            className={
              question.optionTwo.votes.indexOf(authedUser) > -1
              ? 'question-option-two question-option-selected'
+             : answered
+              ? 'question-option-two answered'
              : 'question-option-two'
            }
            onClick={(event) => this.handleOptionClicked(2)}
          >
            {question.optionTwo.text}
          </button>
+         {answered && <div className='stats'>
+          <span>
+            Votes: {question.optionOne.votes.length} ({percentVotesOptionOne}%)
+          </span>
+          <span>
+            Votes: {question.optionTwo.votes.length} ({percentVotesOptionTwo}%)
+          </span>
+        </div>}
+
        </div>
      );
    }
