@@ -41,11 +41,11 @@ let questions = {
     timestamp: 1467166872634,
     optionOne: {
       votes: ['sarahedo'],
-      text: 'have horrible short term memory',
+      text: 'Have good communication skills',
     },
     optionTwo: {
       votes: [],
-      text: 'have horrible long term memory'
+      text: 'Not so good communication skills'
     }
   },
   "6ni6ok3ym7mf1p33lnez": {
@@ -54,11 +54,11 @@ let questions = {
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
-      text: 'become a superhero',
+      text: 'Love to be a football player',
     },
     optionTwo: {
       votes: ['johndoe', 'sarahedo'],
-      text: 'become a supervillian'
+      text: 'Love to be a singer'
     }
   },
   "am8ehyc8byjqgar0jgpub9": {
@@ -67,11 +67,11 @@ let questions = {
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
-      text: 'be telekinetic',
+      text: 'love city life',
     },
     optionTwo: {
       votes: ['sarahedo'],
-      text: 'be telepathic'
+      text: 'love country life'
     }
   },
   "loxhs1bqm25b708cmbf3g": {
@@ -80,11 +80,11 @@ let questions = {
     timestamp: 1482579767190,
     optionOne: {
       votes: [],
-      text: 'be a front-end developer',
+      text: 'be a JavaScript developer',
     },
     optionTwo: {
       votes: ['sarahedo'],
-      text: 'be a back-end developer'
+      text: 'be a C# developer'
     }
   },
   "vthrdm985a262al8qx3do": {
@@ -93,11 +93,11 @@ let questions = {
     timestamp: 1489579767190,
     optionOne: {
       votes: ['tylermcginnis'],
-      text: 'find $50 yourself',
+      text: 'I am vegan',
     },
     optionTwo: {
       votes: ['johndoe'],
-      text: 'have your best friend find $500'
+      text: 'I eat meat'
     }
   },
   "xj352vofupe1dqz9emx13r": {
@@ -106,11 +106,11 @@ let questions = {
     timestamp: 1493579767190,
     optionOne: {
       votes: ['johndoe'],
-      text: 'write JavaScript',
+      text: 'I love dancing',
     },
     optionTwo: {
       votes: ['tylermcginnis'],
-      text: 'write Swift'
+      text: 'I like to watch someone dancing'
     }
   },
 }

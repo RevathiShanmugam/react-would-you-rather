@@ -10,7 +10,11 @@ export function getInitialData() {
     _getUsers(),
     _getQuestions(),
   ]).then (function([users, questions]) {
-    return {users, questions,}});
+    return {
+      users,
+      questions,
+    };
+  });
 };
 
 export function saveQuestion(info) {

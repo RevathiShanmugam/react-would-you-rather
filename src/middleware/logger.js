@@ -7,6 +7,6 @@ export default function logger(store) {
       console.log('The new state is: ', store.getState());
       console.groupEnd();
       return result;
-    }
-  }
+    };
+  };
 }

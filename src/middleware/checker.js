@@ -9,8 +9,8 @@ export default function checker(store) {
        if (answers.indexOf(action.qid) > -1) {
          return alert('You can only answer a question once.');
        }
+     }
       return next(action);
     }
   };
-}
 }

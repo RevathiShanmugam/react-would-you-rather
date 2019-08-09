@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import * as actions from '../actions/questions';
 
 class Question extends Component {
   handleOptionClicked = function(option) {
     console.log(this.props)
     const { answerQuestion, authedUser, question } = this.props;
-
-   const answer = option === 1 ? 'optionOne' : 'optionTwo';
-   answerQuestion(authedUser, question.id, answer);
+    const answer = option === 1 ? 'optionOne' : 'optionTwo';
+    answerQuestion(authedUser, question.id, answer);
  }
 
    render() {
@@ -64,8 +63,6 @@ class Question extends Component {
           Votes: {question.optionTwo.votes.length} ({percentVotesOptionTwo}%)
          </span>}
        </div>
-
-
        </Link>
      );
    }
@@ -78,4 +75,4 @@ function mapStateToProps({ authedUser,users }) {
   };
 }
 
-export default connect(mapStateToProps)(Question)
+export default connect(mapStateToProps, actions)(Question)

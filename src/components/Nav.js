@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 function Nav(props) {
   const { authedUser, users } = props
 
-  const avatar = authedUser ? users[authedUser].avatarURL : 'placeholder.jpg';
+  const avatar = authedUser ? users[authedUser].avatarURL : '/images/avatars/rabbit.png';
   const loggedIn = authedUser !== null
   return (
     <nav className='nav'>

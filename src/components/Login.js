@@ -39,7 +39,7 @@ class Login extends Component {
     const { userId, toHome } = this.state;
     const { history, users } = this.props;
     const selected = userId ? userId : -1;
-    const avatar = userId ? users[userId].avatarURL : 'placeholder.jpg';
+    const avatar = userId ? users[userId].avatarURL : '/images/avatars/animals.png';
 
     if(toHome) {
       const redirect = history.location.state;

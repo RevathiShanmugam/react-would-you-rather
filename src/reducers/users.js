@@ -17,7 +17,6 @@ export default function users(state = {}, action) {
         }
       };
       case ANSWER_QUESTION:
-      // this is a part of on optimistic UI action
       return {
         ...state,
         [action.authedUser]: {

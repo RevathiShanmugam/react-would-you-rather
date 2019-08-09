@@ -14,7 +14,6 @@ export default function questions(state = {}, action) {
         ...action.questions,
       };
     case ANSWER_QUESTION:
-      // this is a part of on optimistic UI action
       return {
         ...state,
         [action.qid]: {
