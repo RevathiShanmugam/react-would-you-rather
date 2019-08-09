@@ -1,9 +1,9 @@
 # Would you rather.. Project
 
-##Description
+## Description
 Would you rather.. app lets a user play the “Would You Rather?” game. The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules.
 
-##How to run :-
+## How to run :-
 1. Download or clone the repository on your machine https://github.com/RevathiShanmugam/react-would-you-rather.git
 2. Extract the .zip file
 3. cd react-would-you-rather
