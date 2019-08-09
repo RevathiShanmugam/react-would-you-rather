@@ -86,6 +86,7 @@ a {
   flex-direction: row;
   justify-content: flex-start;
   text-decoration: none;
+  position: relative;
 }
 
 .nav li:first-child {
@@ -94,8 +95,9 @@ a {
 
 .nav li:last-child {
   float: right;
-  right: 0;
-  position: absolute;
+  padding-right: 0;
+  margin-right: 0;
+  margin-left: auto;
 }
 
 ul {
@@ -138,19 +140,71 @@ li {
   border-radius: 5px;
 }
 
-.login-box > span,
+.login-box span,
 .user-select {
   float: left;
   margin: 0 auto 10px auto;
   flex: 1 90%;
 }
-.user-select > select {
+.user-select select {
   float: right;
   width: 160px;
   height: 30px;
   margin: 20px 0px 10px 10px;
 }
 
-.login-box > button {
+.login-box button {
   margin: 0 auto;
+}
+.question-list {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.question {
+  display: inline-block;
+  max-width: 300px;
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 10px auto;
+  border: 1px solid #dad7d7;
+  border-radius: 5px;
+}
+
+.question img {
+  display: inline-block;
+  position: relative;
+  left: 10px;
+  margin: 0;
+}
+
+.question span{
+  width: 70%;
+  text-align: center;
+  margin: 20px;
+  display: block;
+  float: left;
+}
+
+.question button {
+  outline: 0;
+  width: 145px;
+  min-height: 60px;
+  padding: 10px;
+  border: 1px solid #dad7d7;
+  border-radius: 4px;
+}
+
+.question-option-selected {
+  font-weight: bold;
+  background: #eee;
+}
+
+.question-option-one {
+  margin-right: 5px;
+}
+
+.question-option-two {
+  margin-left: 5px;
 }

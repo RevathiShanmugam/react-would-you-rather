@@ -12,8 +12,20 @@ class Dashboard extends Component {
        };
      });
    }
+   handleOptionClicked = function(option) {
+
+  }
   render() {
     const { showAnswered } = this.state
+    const { authedUser, questions, users } = this.props;
+    const questionsArray = Object.keys(questions).map((key) => questions[key]);
+    const filteredQuestions = questionsArray.filter(function(question) {
+    const contains = (
+        question.optionOne.votes.indexOf(authedUser) > -1 ||
+        question.optionTwo.votes.indexOf(authedUser) > -1
+      );
+      return showAnswered ? contains : !contains;
+    })
     return (
       <div>
         <h3 className='center'>Dashboard</h3>
@@ -30,13 +42,45 @@ class Dashboard extends Component {
             Answered
           </button>
         </div>
+        <ul className='question-list'>
+          {filteredQuestions.map((question) => (
+            <li key={question.id} className='question'>
+            <img
+            src={users[question.author].avatarURL}
+            alt={`Avatar of ${question.author}`}
+            className='avatar'/>
+      <span>Would you rather ...</span>
+      <button
+        className={
+          question.optionOne.votes.indexOf(authedUser) > -1
+          ? 'question-option-one question-option-selected'
+          : 'question-option-one'
+        }
+        onClick={(event) => this.handleOptionClicked(1)}
+      >
+        {question.optionOne.text}
+      </button>
+      <button
+        className={
+          question.optionTwo.votes.indexOf(authedUser) > -1
+          ? 'question-option-two question-option-selected'
+          : 'question-option-two'
+        }
+        onClick={(event) => this.handleOptionClicked(2)}
+      >
+        {question.optionTwo.text}
+      </button>
+    </li>
+  ))}
+</ul>
       </div>
     );
   }
 }
 
-function mapStateToProps({ questions, users }) {
+function mapStateToProps({ authedUser, questions, users }) {
   return {
+    authedUser,
     questions,
     users,
   };
