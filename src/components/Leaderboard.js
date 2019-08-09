@@ -5,17 +5,28 @@ function Leaderboard(props) {
   const { users } = props;
   const userArray = Object.keys(users).map((key) => users[key]);
   // sort from most to least answered
-  const sortedUserArray = userArray.sort((a, b) => Object.keys(b.answers).length - Object.keys(a.answers).length)
-
+  const sortedUserArray = userArray.sort((a, b) =>  {
+    const sumA = Object.keys(a.answers).length + a.questions.length;
+    const sumB = Object.keys(b.answers).length + b.questions.length;
+    return sumB -sumA;
+  })
   return (
     <div>
       <h3 className='center'>Leaderboard</h3>
       <ul className='user-list'>
         {sortedUserArray.map((user) => (
-          <li key={user}>
-            <div className='user-stats'>
-              {user.name}
-              Answers: {Object.keys(user.answers).length}
+          <li key={user.id}>
+            <div className='user'>
+              <img
+                src={user.avatarURL}
+                alt={`Avatar of ${user.name}`}
+                className='avatar'
+              />
+              <span>{user.name}</span>
+              <div className='user-stats'>
+                <p>Asked: {user.questions.length}</p>
+                <p>Answered: {Object.keys(user.answers).length}</p>
+              </div>
             </div>
           </li>
         ))}

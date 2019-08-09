@@ -40,6 +40,11 @@ a {
   background: #ddd;
 }
 
+.btn-group button:hover {
+  text-decoration: none;
+  background: #ccc;
+}
+
 .btn-group .btn-lft {
   border-right: 0px;
   border-radius: 4px 0px 0px 4px;
@@ -199,6 +204,12 @@ li {
   padding: 10px;
   border: 1px solid #dad7d7;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+.question button:hover {
+  text-decoration: none;
+  background: #ddd;
 }
 
 .question-option-selected {
@@ -213,6 +224,35 @@ li {
 .question-option-two {
   margin-left: 5px;
 }
-.user-lsit {
+.user-list {
+  width: 300px;
+  margin: 0 auto;
+}
 
-} 
+.user {
+  max-width: 300px;
+  padding: 10px;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 5px;
+}
+
+.user img {
+  margin: 0;
+  float: left;
+}
+
+.user span{
+  margin: 10px 20px;
+  font-size: 18px;
+}
+
+.user-stats {
+  margin-top: 5px;
+  margin-left: 70px;
+}
+
+.user-stats p {
+  font-size: 12px;
+  margin: 0px;
+}
