@@ -10,7 +10,7 @@ a {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 10px;
 }
@@ -94,6 +94,10 @@ a {
   position: relative;
 }
 
+.nav li {
+  height: 20px;
+}
+
 .nav li:first-child {
   padding-left: 0;
 }
@@ -122,11 +126,10 @@ li {
 }
 
 .nav-avatar {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   border-radius: 15px;
-  margin: 5px;
-  margin-left: 10px;
+  margin: 0 5px 0 10px;
 }
 .avatar {
   height: 50px;
@@ -163,23 +166,29 @@ li {
 }
 .question-list {
   display: flex;
-  flex-flow: wrap;
+  flex-flow: column wrap;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: -8px;
+  padding: 0;
+}
+
+.question-list li {
+  margin: 0 8px -10px 8px;
+  padding: 0;
 }
 
 .question {
-  max-width: 300px;
+  width: 280px;
   padding: 10px;
   display: flex;
-  flex-flow: row;
+  flex-flow: wrap;
   margin: 10px auto;
   border: 1px solid #dad7d7;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.question div {
-  display: flex;
-  flex-flow: row wrap;
 }
 
 .question img {
@@ -190,39 +199,58 @@ li {
 }
 
 .question span{
-  width: 70%;
+  width: 60%;
   text-align: center;
   margin: 20px;
   display: block;
   float: right;
 }
 
-.question button {
+.option {
+  padding: 0px;
+  width: 135px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.opt-offset {
+  margin-left: 10px;
+}
+
+.option button {
   outline: 0;
-  width: 145px;
+  width: 100%;
   min-height: 72px;
-  padding: 10px;
   border: 1px solid #dad7d7;
   border-radius: 4px;
+  background: #fff;
   cursor: pointer;
 }
 
-.question button:hover {
+.option .stats {
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  margin-top: 5px;
+  font-size: 12px;
+}
+.option button:hover {
   text-decoration: none;
   background: #ddd;
 }
 
-.question-option-selected {
+.option button.answered:hover {
+  text-decoration: none;
+  background: #fff;
+}
+button.question-option-selected {
   font-weight: bold;
   background: #eee;
-}
-
-.question-option-one {
-  margin-right: 5px;
-}
-
-.question-option-two {
-  margin-left: 5px;
 }
 .user-list {
   width: 300px;

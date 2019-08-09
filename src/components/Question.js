@@ -20,46 +20,49 @@ class Question extends Component {
      const percentVotesOptionOne = (votesOptionOne / votesTotal).toFixed(2) * 100;
      const percentVotesOptionTwo = (votesOptionTwo / votesTotal).toFixed(2) * 100;
 
-     return (
-       <Link to={`/questions/${question.id}`}>
+     return(
+         <Link to={`/questions/${question.id}`} className='question'>
          <img
            src={`${users[question.author].avatarURL}`}
            alt={`Avatar of ${question.author}`}
            className='avatar'
          />
          <span>Would you rather ...</span>
-         <button
-           className={
-             question.optionOne.votes.indexOf(authedUser) > -1
-             ? 'question-option-one question-option-selected'
-             : answered
-              ? 'question-option-one answered'
-             : 'question-option-one'
-           }
-           onClick={(event) => this.handleOptionClicked(1)}
-         >
-           {question.optionOne.text}
-         </button>
-         <button
-           className={
-             question.optionTwo.votes.indexOf(authedUser) > -1
-             ? 'question-option-two question-option-selected'
-             : answered
-              ? 'question-option-two answered'
-             : 'question-option-two'
-           }
-           onClick={(event) => this.handleOptionClicked(2)}
-         >
-           {question.optionTwo.text}
-         </button>
-         {answered && <div className='stats'>
-          <span>
+         <div className='option'>
+          <button
+            className={
+              question.optionOne.votes.indexOf(authedUser) > -1
+              ? 'question-option-selected'
+              : answered
+                ? 'answered'
+                : ''
+            }
+            onClick={(event) => this.handleOptionClicked(1)}
+          >
+            {question.optionOne.text}
+          </button>
+          {answered && <span className='stats'>
             Votes: {question.optionOne.votes.length} ({percentVotesOptionOne}%)
-          </span>
-          <span>
-            Votes: {question.optionTwo.votes.length} ({percentVotesOptionTwo}%)
-          </span>
-        </div>}
+          </span>}
+        </div>
+        <div className='option opt-offset'>
+          <button
+            className={
+              question.optionTwo.votes.indexOf(authedUser) > -1
+              ? 'question-option-two question-option-selected'
+              : answered
+                ? 'question-option-two answered'
+                : 'question-option-two'
+            }
+            onClick={(event) => this.handleOptionClicked(2)}
+          >
+            {question.optionTwo.text}
+          </button>
+          {answered && <span className='stats'>
+          Votes: {question.optionTwo.votes.length} ({percentVotesOptionTwo}%)
+         </span>}
+       </div>
+
 
        </Link>
      );

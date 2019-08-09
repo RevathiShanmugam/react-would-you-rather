@@ -11,13 +11,11 @@ function QuestionDetails(props) {
     return <Redirect from='*' to='/not-found' />
   }
 
-  return (
+  return(
     <div>
       <h3 className='center'>Question</h3>
       {question &&
-        <div className='question'>
           <Question question={question} />
-        </div>
       }
     </div>
   );

@@ -44,7 +44,7 @@ class Dashboard extends Component {
         </div>
         <ul className='question-list'>
           {sortedQuestions.map((question) => (
-            <li key={question.id} className='question'>
+            <li key={question.id}>
               <Question question={question} />
               </li>
             ))}
