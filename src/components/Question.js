@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { answerQuestion } from '../actions/questions';
 
 class Question extends Component {
   handleOptionClicked = function(option) {
-
-   }
+    const { authedUser, question, dispatch } = this.props;
+   const answer = option === 1 ? 'optionOne' : 'optionTwo';
+   dispatch(answerQuestion(authedUser, question.id, answer));
+ }
 
    render() {
      const { authedUser, question, users } = this.props;

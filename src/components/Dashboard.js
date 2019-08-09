@@ -16,7 +16,7 @@ class Dashboard extends Component {
 
   render() {
     const { showAnswered } = this.state
-    const { authedUser, questions, users } = this.props;
+    const { authedUser, questions} = this.props;
     const questionsArray = Object.keys(questions).map((key) => questions[key]);
     const filteredQuestions = questionsArray.filter(function(question) {
     const contains = (
@@ -24,7 +24,8 @@ class Dashboard extends Component {
         question.optionTwo.votes.indexOf(authedUser) > -1
       );
       return showAnswered ? contains : !contains;
-    })
+    });
+    const sortedQuestions = filteredQuestions.sort((a, b) => b.timestamp - a.timestamp);
     return (
       <div>
         <h3 className='center'>Dashboard</h3>
@@ -42,7 +43,7 @@ class Dashboard extends Component {
           </button>
         </div>
         <ul className='question-list'>
-          {filteredQuestions.map((question) => (
+          {sortedQuestions.map((question) => (
             <li key={question.id} className='question'>
               <Question question={question} />
               </li>
