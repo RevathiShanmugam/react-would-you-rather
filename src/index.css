@@ -162,14 +162,18 @@ li {
 }
 
 .question {
-  display: inline-block;
   max-width: 300px;
   padding: 10px;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row;
   margin: 10px auto;
   border: 1px solid #dad7d7;
   border-radius: 5px;
+}
+
+.question div {
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .question img {
@@ -184,13 +188,13 @@ li {
   text-align: center;
   margin: 20px;
   display: block;
-  float: left;
+  float: right;
 }
 
 .question button {
   outline: 0;
   width: 145px;
-  min-height: 60px;
+  min-height: 72px;
   padding: 10px;
   border: 1px solid #dad7d7;
   border-radius: 4px;
