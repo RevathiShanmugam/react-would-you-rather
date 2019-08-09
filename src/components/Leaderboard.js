@@ -1,14 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-class Leaderboard extends Component {
-  render() {
-    return (
-      <div>
-        Leaderboard
-      </div>
-    );
-  }
+function Leaderboard(props) {
+  const { users } = props;
+  const userArray = Object.keys(users).map((key) => users[key]);
+  // sort from most to least answered
+  const sortedUserArray = userArray.sort((a, b) => Object.keys(b.answers).length - Object.keys(a.answers).length)
+
+  return (
+    <div>
+      <h3 className='center'>Leaderboard</h3>
+      <ul className='user-list'>
+        {sortedUserArray.map((user) => (
+          <li key={user}>
+            <div className='user-stats'>
+              {user.name}
+              Answers: {Object.keys(user.answers).length}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 function mapStateToProps({ users }) {
@@ -17,4 +30,4 @@ function mapStateToProps({ users }) {
   };
 }
 
-export default connect(mapStateToProps)(Leaderboard) 
+export default connect(mapStateToProps)(Leaderboard)

@@ -169,6 +169,7 @@ li {
   margin: 10px auto;
   border: 1px solid #dad7d7;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .question div {
@@ -212,3 +213,6 @@ li {
 .question-option-two {
   margin-left: 5px;
 }
+.user-lsit {
+
+} 
