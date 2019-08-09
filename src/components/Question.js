@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { answerQuestion } from '../actions/questions';
 
 class Question extends Component {
@@ -12,17 +13,17 @@ class Question extends Component {
    render() {
      const { authedUser, question, users } = this.props;
      const answers = Object.keys(users[authedUser].answers);
-    const answered = answers.indexOf(question.id) > -1 ? true : false;
-    const votesOptionOne = question.optionOne.votes.length;
-    const votesOptionTwo = question.optionTwo.votes.length;
-    const votesTotal = votesOptionOne + votesOptionTwo;
-    const percentVotesOptionOne = (votesOptionOne / votesTotal).toFixed(2) * 100;
-    const percentVotesOptionTwo = (votesOptionTwo / votesTotal).toFixed(2) * 100;
+     const answered = answers.indexOf(question.id) > -1 ? true : false;
+     const votesOptionOne = question.optionOne.votes.length;
+     const votesOptionTwo = question.optionTwo.votes.length;
+     const votesTotal = votesOptionOne + votesOptionTwo;
+     const percentVotesOptionOne = (votesOptionOne / votesTotal).toFixed(2) * 100;
+     const percentVotesOptionTwo = (votesOptionTwo / votesTotal).toFixed(2) * 100;
 
      return (
-       <div>
+       <Link to={`/questions/${question.id}`}>
          <img
-           src={users[question.author].avatarURL}
+           src={`${users[question.author].avatarURL}`}
            alt={`Avatar of ${question.author}`}
            className='avatar'
          />
@@ -60,7 +61,7 @@ class Question extends Component {
           </span>
         </div>}
 
-       </div>
+       </Link>
      );
    }
 }

@@ -1,14 +1,19 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 
-export default function ProtectedRoute({ component: Component, ...rest }) {
+function ProtectedRoute({ component: Component, ...rest }) {
+  const redirect = rest.location.pathname;
   return (
     <Route {...rest} render={function(props) {
       return (
         rest.loggedIn
         ? <Component {...props} />
-        : <Redirect to='/login' />
+        : <Redirect to= {{
+            pathname: '/login',
+            state: redirect
+          }}  />
       )}
     } />
   );
 }
+export default withRouter(ProtectedRoute);

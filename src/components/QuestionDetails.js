@@ -1,20 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Question from './Question';
 
-class QuestionsDetail extends Component {
-  render() {
-    return (
-      <div>
-        QuestionsDetail
-      </div>
-    );
+function QuestionDetails(props) {
+  const { id, questions } = props;
+  const question = questions[id];
+
+  if(question == null) {
+    return <Redirect from='*' to='/not-found' />
   }
+
+  return (
+    <div>
+      <h3 className='center'>Question</h3>
+      {question &&
+        <div className='question'>
+          <Question question={question} />
+        </div>
+      }
+    </div>
+  );
 }
 
-function mapStateToProps({ users }) {
-  return {
-    users,
-  };
+function mapStateToProps({ authedUser, questions }, props) {
+    console.log('props', props)
+    const { id } = props.match.params;
+    console.log(id)
+      return {
+        id,
+        questions,
+      };
 }
 
-export default connect(mapStateToProps)(QuestionsDetail) 
+export default connect(mapStateToProps)(QuestionDetails)
