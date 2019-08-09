@@ -10,6 +10,7 @@ function Leaderboard(props) {
     const sumB = Object.keys(b.answers).length + b.questions.length;
     return sumB -sumA;
   })
+  
   return (
     <div>
       <h3 className='center'>Leaderboard</h3>

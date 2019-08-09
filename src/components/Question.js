@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { answerQuestion } from '../actions/questions';
+import * as actions from '../actions/questions';
 
 class Question extends Component {
   handleOptionClicked = function(option) {
-    const { authedUser, question, dispatch } = this.props;
+    console.log(this.props)
+    const { answerQuestion, authedUser, question } = this.props;
+
    const answer = option === 1 ? 'optionOne' : 'optionTwo';
-   dispatch(answerQuestion(authedUser, question.id, answer));
+   answerQuestion(authedUser, question.id, answer);
  }
 
    render() {

@@ -18,7 +18,7 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
     const questionInfo = {
       optionOneText,
       optionTwoText,
-      auther: authedUser,
+      author: authedUser,
     };
 
     return saveQuestion(questionInfo)

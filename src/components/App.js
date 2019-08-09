@@ -11,7 +11,6 @@ import QuestionDetails from './QuestionDetails';
 import ProtectedRoute from '../utils/ProtectedRoute';
 import NotFound from './NotFound';
 
-
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())

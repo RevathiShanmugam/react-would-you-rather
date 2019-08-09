@@ -37,7 +37,7 @@ class Dashboard extends Component {
             Unanswered
           </button>
           <button
-            className={showAnswered ? 'active' : ''}
+            className={showAnswered ? 'btn-rght active' : 'btn-rght'}
             onClick={(event) => this.handleFilterClicked(true)}>
             Answered
           </button>

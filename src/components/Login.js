@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { setAuthedUser, clearAuthedUser } from '../actions/authedUser';
 
 class Login extends Component {
@@ -72,7 +72,8 @@ class Login extends Component {
           <button
             className='btn'
             disabled={userId === null}
-            onClick={(event) => this.handleLogin(event)}>
+            onClick={(event) => this.handleLogin(event)}
+            >
             Login
           </button>
         </div>
@@ -83,8 +84,8 @@ class Login extends Component {
 
 function mapStateToProps({ users }) {
   return {
-    users
+    users,
   };
 }
 
-export default withRouter(mapStateToProps)(Login)
+export default withRouter(connect(mapStateToProps)(Login))
