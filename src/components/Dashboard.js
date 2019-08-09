@@ -16,10 +16,10 @@ class Dashboard extends Component {
     const { showAnswered } = this.state
     return (
       <div>
-        Dashboard
+        <h3 className='center'>Dashboard</h3>
         <div className='btn-group'>
           <button
-            className={!showAnswered ? 'active' : ''}
+            className={!showAnswered ? 'btn-lft active' : 'btn-lft'}
             onClick={(event) => this.handleFilterClicked(false)}
           >
             Unanswered
