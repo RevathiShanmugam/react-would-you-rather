@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
 import { setAuthedUser, clearAuthedUser } from '../actions/authedUser';
 
 class Login extends Component {

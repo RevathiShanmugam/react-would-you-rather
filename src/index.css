@@ -72,6 +72,11 @@ a {
   text-decoration: none;
 }
 
+.btn:disabled:hover {
+  border: 1px solid rgba(0,0,0,.29);
+  text-decoration: none;
+}
+
 .btn:focus {
   outline: 0;
   font-weight: 700;
@@ -222,7 +227,18 @@ li {
   margin-left: 10px;
 }
 
-.option button {
+.question form {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.question form button {
+  width: 100%;
+  margin: 10px 0 0 0;
+}
+
+.option button, .option textarea {
+  box-sizing: border-box;
   outline: 0;
   width: 100%;
   min-height: 72px;
@@ -230,9 +246,17 @@ li {
   border-radius: 4px;
   background: #fff;
   cursor: pointer;
+  vertical-align: middle;
 }
 
-.option .stats {
+.option textarea {
+  resize: none;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 14px;
+}
+
+.option .stats, .option .hint {
   width: 150px;
   padding: 0;
   margin: 0;
