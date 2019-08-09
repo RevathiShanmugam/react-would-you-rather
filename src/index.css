@@ -21,6 +21,7 @@ a {
   padding: 10px;
   border: 1px solid rgba(0,0,0,.29);
   cursor: pointer;
+  border-radius: 3px;
   background: #fff;
   font-size: 16px;
   width: 250px;
@@ -57,8 +58,15 @@ a {
   padding-left: 0;
 }
 
+.nav li:last-child {
+  float: right;
+  right: 0;
+  position: absolute;
+}
+
 ul {
   padding-left: 0;
+  align-items: center;
 }
 
 li {
@@ -66,20 +74,49 @@ li {
   padding: 10px;
   text-decoration: none;
 }
+.nav-user {
+  float: right;
+  display: flex;
+  align-items: center;
+}
 
+.nav-avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  margin: 5px;
+  margin-left: 10px;
+}
 .avatar {
   height: 50px;
+  width: 50px;
   border-radius: 25px;
   margin: 10px;
 }
-
-.box {
+.login-box {
   width: 100%;
-  max-width: 590px;
+  max-width: 250px;
   padding: 10px;
   display: flex;
+  flex-flow: row wrap;
   margin: 0 auto;
   border: 1px solid #dad7d7;
-  border-radius: 3px;
-  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login-box > span,
+.user-select {
+  float: left;
+  margin: 0 auto 10px auto;
+  flex: 1 90%;
+}
+.user-select > select {
+  float: right;
+  width: 160px;
+  height: 30px;
+  margin: 20px 0px 10px 10px;
+}
+
+.login-box > button {
+  margin: 0 auto;
 }
