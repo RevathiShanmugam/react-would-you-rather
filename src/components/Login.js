@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setAuthedUser} from '../actions/authedUser';
+import { setAuthedUser, clearAuthedUser } from '../actions/authedUser';
 
 class Login extends Component {
   state = {
     userId: null,
-    toDashboard: false,
+    toHome: false,
   }
 
   handleSelectionChanged = function(event) {
@@ -16,10 +16,10 @@ class Login extends Component {
         ...previousState,
         userId,
       };
-    })
+    });
   }
 
-  handleLogin = (event)=> {
+  handleLogin = function(event) {
     const { userId } = this.state;
     const { dispatch } = this.props;
 
@@ -28,18 +28,20 @@ class Login extends Component {
     this.setState(function(previousState){
       return {
         ...previousState,
-        toDashboard: true,
+        toHome: true,
       };
     });
   }
-
+  componentDidMount() {
+    this.props.dispatch(clearAuthedUser())
+  }
   render() {
-    const { userId, toDashboard } = this.state;
+    const { userId, toHome } = this.state;
     const { users } = this.props;
     const selected = userId ? userId : -1;
     const avatar = userId ? users[userId].avatarURL : 'placeholder.jpg';
 
-    if(toDashboard) {
+    if(toHome) {
       return <Redirect to='/' />
     }
 

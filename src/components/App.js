@@ -8,6 +8,7 @@ import Login from './Login';
 import Nav from './Nav';
 import NewQuestion from './NewQuestion';
 import QuestionDetails from './QuestionDetails';
+import ProtectedRoute from '../utils/ProtectedRoute';
 
 
 class App extends Component {
@@ -15,20 +16,19 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
   render() {
+    const { loggedIn } = this.props;
     return (
       <Router>
        <Fragment>
          <div className='container'>
            <Nav />
-           {this.props.loggedOut === true
-             ? <Route component={Login} />
-             : <div>
-                 <Route path='/' exact component={Dashboard} />
-                 <Route path='/login' exact component={Login} />
-                 <Route path='/leaderboard' exact component={Leaderboard} />
-                 <Route path='/questions/:id' exact component={QuestionDetails} />
-                 <Route path='/add' exact component={NewQuestion} />
-               </div>}
+           <div>
+                <Route path='/login' exact component={Login} />
+                <ProtectedRoute path='/' exact component={Dashboard} loggedIn={loggedIn} />
+                <ProtectedRoute path='/leaderboard' exact component={Leaderboard} loggedIn={loggedIn} />
+                <ProtectedRoute path='/questions/:id' exact component={QuestionDetails} loggedIn={loggedIn} />
+                <ProtectedRoute path='/add' exact component={NewQuestion} loggedIn={loggedIn} />
+              </div>
          </div>
        </Fragment>
      </Router>
@@ -37,7 +37,7 @@ class App extends Component {
 }
 function mapStateToProps({ authedUser }) {
   return {
-    loggedOut: authedUser === null,
+    loggedIn: authedUser !== null,
   };
 }
 export default connect(mapStateToProps)(App)
